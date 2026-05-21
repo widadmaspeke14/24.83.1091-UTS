@@ -1,0 +1,240 @@
+/* --- RESET & VARIABEL (Global) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary-color: #4a2e1b; 
+    --accent-color: #f39c12;  
+    --bg-color: #fcf8f2;       
+    --text-color: #3e2723;
+    --white: #ffffff;
+    --transition: 0.3s ease;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+/* --- TOMBOL UTAMA (CTA) --- */
+.btn {
+    display: inline-block;
+    padding: 12px 35px;
+    background-color: var(--accent-color);
+    color: var(--white);
+    border-radius: 30px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background-color: #e67e22;
+    transform: translateY(-2px);
+}
+
+/* --- KONTEN UTAMA --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- MENU NAVIGASI (NAVBAR) --- */
+.navbar {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--accent-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-weight: 500;
+    font-size: 16px;
+    padding: 5px 0;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* ========================================================
+   PENGATURAN BARU: HERO HOME (FOTO LEBIH KECIL)
+   ======================================================== */
+
+.hero-home {
+    padding: 80px 0;
+    background-color: #efebe9; /* Background kontras tipis untuk area hero */
+}
+
+/* Membuat isi teks dan foto berjejer kanan-kiri */
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+/* Sisi Teks */
+.hero-text {
+    flex: 1;
+    text-align: left;
+}
+
+.hero-title {
+    font-size: 46px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 18px;
+    color: #5d4037;
+    margin-bottom: 35px;
+}
+
+/* Sisi Bingkai Foto (Pembatas Ukuran) */
+.hero-image-box {
+    flex: 1;
+    max-width: 480px; /* Lebar foto maksimal dikunci disini */
+    display: flex;
+    justify-content: center;
+}
+
+/* Pengaturan Detail Foto */
+.hero-img {
+    width: 100%;
+    height: 380px; /* Tinggi foto dikunci disini */
+    object-fit: cover; /* Foto dipotong rapi otomatis, tidak penyok/gepeng */
+    border-radius: 20px; /* Sudut melengkung halus */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15); /* Efek bayangan estetik */
+}
+
+/* --- FEATURE SECTION (Grid Bawah) --- */
+.features {
+    padding: 80px 0;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.feature-item {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.feature-icon {
+    font-size: 48px;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.feature-title {
+    font-size: 22px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.feature-description {
+    color: #7f8c8d;
+}
+
+/* --- RESPONSIF HP (Otomatis Susun Kebawah di Layar Kecil) --- */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    .hero-container {
+        flex-direction: column-reverse; /* Foto pindah ke atas teks saat di HP */
+        text-align: center;
+        gap: 30px;
+    }
+    .hero-text {
+        text-align: center;
+    }
+    .hero-title {
+        font-size: 32px;
+    }
+    .hero-img {
+        height: 28px0px; /* Di HP ukuran foto mengecil lagi otomatis */
+    }
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--primary-color);
+    color: #bdc3c7;
+    text-align: center;
+    padding: 30px;
+    margin-top: auto;
+}
